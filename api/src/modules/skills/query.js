@@ -11,7 +11,9 @@ const Query = {
     });
   },
   getById: (id) => {
-    let sqlQuery = `SELECT modules.module_name, skills.skill_name FROM skills,modules WHERE skills.modules_id = modules.id_modules AND skills.id_skills=?`;
+    let sqlQuery = `SELECT modules.module_name, skills.skill_name 
+    FROM skills,modules 
+    WHERE skills.modules_id = modules.id AND skills.id=?`;  //fixed ids in back
     return new Promise((resolve, reject) => {
       db.query(sqlQuery, [id], (err, rows) => {
         if (err) reject(err);
@@ -21,9 +23,10 @@ const Query = {
   },
   getByModule: (id) => {
     let sqlQuery = `
-    SELECT skills.modules_id,modules.module_name, skills.id_skills,skills.skill_name
+    SELECT skills.modules_id,modules.module_name, skills.id,skills.skill_name
      FROM skills,modules 
-     WHERE skills.modules_id=?AND skills.modules_id=modules.id_modules`;
+     WHERE skills.modules_id=?
+     AND skills.modules_id=modules.id`;
     return new Promise((resolve, reject) => {
       db.query(sqlQuery, [id], (err, rows) => {
         if (err) reject(err);

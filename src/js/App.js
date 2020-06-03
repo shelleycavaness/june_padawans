@@ -4,6 +4,7 @@ import Login from "./pages/login";
 import Header from "./components/Header";
 import Register from "./pages/register";
 import Exercices from "./pages/exercices";
+import Skills from "./pages/skills"
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 const App = () => {
@@ -23,6 +24,9 @@ const App = () => {
           </Route>
           <Route path="/register">
             <Register />
+          </Route>
+          <Route path="/skills">
+            <Skills />
           </Route>
 
           <Route exact path="/">

@@ -94,7 +94,7 @@ const PadawanService = {
     }
 
     const padawan = await padawanQueries.getByEmail(email);
-
+    console.log("@@@@/@@padawan:", padawan)
     if (!padawan) {
       return {
         status: 403,
@@ -104,7 +104,7 @@ const PadawanService = {
 
     const passwordMatched = await brcrypt.compare(
       password,
-      padawan[0].password
+      padawan.password
     );
 
     console.log(passwordMatched);

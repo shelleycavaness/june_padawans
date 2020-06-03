@@ -17,18 +17,24 @@ const Home = () => {
     }, [])
 
     if (moduleIsLoading) return <span>Modules are loading</span>
+    const seeModules =  modulesCollection && modulesCollection.map(item => 
+      <li key={item.id}>{item.module_name }  </li>)
+    const seeSkills =  skillCollection && skillCollection.map(item => <p  key={item.id}>{ item.skill_name } </p>)   
 
     return (
         <section>
-            <h1>Home</h1>
-            { 
-                modulesCollection && modulesCollection.map(item => <p key={item.id_modules}>{item.module_name}</p>)
-            }
-            <br/>
-            <button onClick={() => dispatch({ type: 'CLEAR_MODULES' })}> Clear modules </button>
+          <h1>Home</h1>
+          <div>
+            <ul style={{listStyle:'none'}}>
+            { seeModules }
+            </ul>
+          </div>
+          <br/>
+          <button onClick={() => dispatch({ type: 'CLEAR_MODULES' })}> Clear modules </button>
 
         { 
-            skillCollection && skillCollection.map(item => <p>{ item.skill_name } </p>)  
+         // {/* skillCollection && skillCollection.map(item => <p  key={item.id}>{ item.skill_name } </p>)   */}
+          seeSkills
         }
         </section>
     )

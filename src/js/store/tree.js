@@ -100,3 +100,26 @@ export default treeReducer;
 
 // console.log('///////////////////////////', treeName)
 
+
+// useEffect(() => {
+//     api.get("/modules/").then((modulesResponse) => {
+//       // setArrayModules(moduleResponse.data.data);
+//       let modules = modulesResponse.data.data;
+//       let modulesWithSkills = [];
+//       let x = 0;
+
+//       modules.forEach((module) => {
+//         api.get("/skills/module/" + module.id).then((skillsResponse) => {
+//           let skills = skillsResponse.data.data;
+//           let moduleWithSkills = { ...module, skills: skills };
+
+//           modulesWithSkills.push(moduleWithSkills);
+//           x++;
+
+//           if (x === modules.length) {
+//             setArrayModules(modulesWithSkills);
+//           }
+//         });
+//       });
+//     });
+//   }, []);

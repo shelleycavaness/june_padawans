@@ -16,6 +16,11 @@ const ModuleService = {
         payload: { success: false, message: err },
       }));
   },
+//
+  // "SELECT modules.id, modules.module_name, skills.id, skills.skill_name 
+  // FROM modules 
+  // INNER JOIN skills ON modules.id = skills.modules_id 
+  // ORDER BY modules.id";
   getSkills: async () => {
     return moduleQueries
       .getSkills()

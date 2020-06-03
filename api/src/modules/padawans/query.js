@@ -31,7 +31,7 @@ const Query = {
   },
 
   getById: (id) => {
-    let sqlQuery = "SELECT * from padawans WHERE id_padawans=?";
+    let sqlQuery = "SELECT * from padawans WHERE id=?";
 
     return new Promise((resolve, reject) => {
       db.query(sqlQuery, [id], (err, rows) => {
@@ -46,7 +46,7 @@ const Query = {
     return new Promise((resolve, reject) => {
       db.query(sqlQuery, [email], (err, rows) => {
         if (err) reject(err);
-        resolve(rows);
+        resolve(rows[0]);
       });
     });
   },
